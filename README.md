@@ -1,32 +1,54 @@
-# Baileys - Typescript/Javascript WhatsApp Web API
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+# Baileys Up To Date
  
- Baileys does not require Selenium or any other browser to be interface with WhatsApp Web, it does so directly using a **WebSocket**. Not running Selenium or Chromimum saves you like **half a gig** of ram :/ 
+ <p align="center">
+<img width="" src="https://img.shields.io/github/repo-size/amiruldev20/baileys?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">
+</p>
 
- Baileys supports interacting with the multi-device & web versions of WhatsApp.
-
- Thank you to [@pokearaujo](https://github.com/pokearaujo/multidevice) for writing his observations on the workings of WhatsApp Multi-Device. Also, thank you to [@Sigalor](https://github.com/sigalor/whatsapp-web-reveng) for writing his observations on the workings of WhatsApp Web and thanks to [@Rhymen](https://github.com/Rhymen/go-whatsapp/) for the __go__ implementation.
-
- Baileys is type-safe, extensible and simple to use. If you require more functionality than provided, it's super easy to write an extension. More on this [here](#WritingCustomFunctionality).
+ > **Warning**: ini hanyalah repo baileys yang sudah ter update & fix jika ada problem. memudahkan bagi pemula jika ada pull req di repo utama yang belum di acc
  
- If you're interested in building a WhatsApp bot, you may wanna check out [WhatsAppInfoBot](https://github.com/adiwajshing/WhatsappInfoBot) and an actual bot built with it, [Messcat](https://github.com/ashokatechmin/Messcat).
+GRUP INFO BAILEYS: [KLIK DISINI](https://chat.whatsapp.com/LF2GXyxYnCgEEbmHA3KmQo)
 
- **Read the docs [here](https://adiwajshing.github.io/Baileys)**
- **Join the Discord [here](https://discord.gg/WeJM5FP9GG)**
+## Button, Template & List ga work?
+silahkan tambahkan ini pada kode config connection anda.
+jika hydrate ga work, tambahin viewOnce: true setelah footer. kode lengkapnya cek contoh hydrate dibawah
+```
+const sock = makeWASocket({
+            // can provide additional config here
+            ...
+            printQRInTerminal: true,
+            patchMessageBeforeSending: (message) => {
+                const requiresPatch = !!(
+                    message.buttonsMessage 
+                    || message.templateMessage
+                    || message.listMessage
+                );
+                if (requiresPatch) {
+                    message = {
+                        viewOnceMessage: {
+                            message: {
+                                messageContextInfo: {
+                                    deviceListMetadataVersion: 2,
+                                    deviceListMetadata: {},
+                                },
+                                ...message,
+                            },
+                        },
+                    };
+                }
 
-## Example
+                return message;
+            },
+    })
+```
 
-Do check out & run [example.ts](https://github.com/adiwajshing/Baileys/blob/master/Example/example.ts) to see an example usage of the library.
-The script covers most common use cases.
-To run the example script, download or clone the repo and then type the following in a terminal:
-1. ``` cd path/to/Baileys ```
-2. ``` yarn ```
-3. ``` yarn example ```
+
 
 ## Install
 
 Use the stable version:
 ```
-yarn add @adiwajshing/baileys
+yarn add baileys
 ```
 
 Use the edge version (no guarantee of stability, but latest fixes + features)
@@ -36,7 +58,7 @@ yarn add github:adiwajshing/baileys
 
 Then import your code using:
 ``` ts 
-import makeWASocket from '@adiwajshing/baileys'
+import makeWASocket from 'baileys'
 ```
 
 ## Unit Tests
@@ -46,7 +68,7 @@ TODO
 ## Connecting
 
 ``` ts
-import makeWASocket, { DisconnectReason } from '@adiwajshing/baileys'
+import makeWASocket, { DisconnectReason } from 'baileys'
 import { Boom } from '@hapi/boom'
 
 async function connectToWhatsApp () {
@@ -176,7 +198,7 @@ You obviously don't want to keep scanning the QR code every time you want to con
 
 So, you can load the credentials to log back in:
 ``` ts
-import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@adiwajshing/baileys'
+import makeWASocket, { BufferJSON, useMultiFileAuthState } from 'baileys'
 import * as fs from 'fs'
 
 // utility function to help save the auth state in a single folder
@@ -289,7 +311,7 @@ Baileys does not come with a defacto storage for chats, contacts, or messages. H
 It can be used as follows:
 
 ``` ts
-import makeWASocket, { makeInMemoryStore } from '@adiwajshing/baileys'
+import makeWASocket, { makeInMemoryStore } from 'baileys'
 // the store maintains the data of the WA connection in memory
 // can be written out to a file & read from it
 const store = makeInMemoryStore({ })
@@ -328,7 +350,7 @@ The store also provides some simple functions such as `loadMessages` that utiliz
 ### Non-Media Messages
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from '@adiwajshing/baileys'
+import { MessageType, MessageOptions, Mimetype } from 'baileys'
 
 const id = 'abcd@s.whatsapp.net' // the WhatsApp ID 
 // send a simple text!
@@ -385,6 +407,7 @@ const templateButtons = [
 const templateMessage = {
     text: "Hi it's a template message",
     footer: 'Hello World',
+    viewOnce: true,
     templateButtons: templateButtons
 }
 
@@ -446,7 +469,7 @@ Sending media (video, stickers, images) is easier & more efficient than ever.
 - When specifying a media url, Baileys never loads the entire buffer into memory; it even encrypts the media as a readable stream.
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from '@adiwajshing/baileys'
+import { MessageType, MessageOptions, Mimetype } from 'baileys'
 // Sending gifs
 await sock.sendMessage(
     id, 
@@ -528,7 +551,7 @@ const sendMsg = await sock.sendMessage(id, templateMessage)
                                     Do not enter this field if you want to automatically generate a thumb
                                 */
         mimetype: Mimetype.pdf, /* (for media messages) specify the type of media (optional for all media types except documents),
-                                    import {Mimetype} from '@adiwajshing/baileys'
+                                    import {Mimetype} from 'baileys'
                                 */
         fileName: 'somefile.pdf', // (for media messages) file name for the media
         /* will send audio messages as voice notes, if set to true */
@@ -587,7 +610,7 @@ The presence expires after about 10 seconds.
 If you want to save the media you received
 ``` ts
 import { writeFile } from 'fs/promises'
-import { downloadMediaMessage } from '@adiwajshing/baileys'
+import { downloadMediaMessage } from 'baileys'
 
 sock.ev.on('messages.upsert', async ({ messages }) => {
     const m = messages[0]
