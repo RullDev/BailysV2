@@ -1,8 +1,8 @@
 {
-  "name": "@adiwajshing/baileys",
-  "version": "5.0.0",
-  "description": "WhatsApp API",
-  "homepage": "https://github.com/adiwajshing/Baileys",
+  "name": "baileys",
+  "version": "6.0.8",
+  "description": "Baileys up to date & fixed",
+  "homepage": "https://github.com/amiruldev20/Baileys",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "keywords": [
@@ -27,10 +27,10 @@
     "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint ./src --fix --ext .js,.ts,.jsx,.tsx"
   },
-  "author": "Adhiraj Singh",
+  "author": "Amirul Dev",
   "license": "MIT",
   "repository": {
-    "url": "git@github.com:adiwajshing/baileys.git"
+    "url": "git@github.com:amiruldev20/baileys.git"
   },
   "dependencies": {
     "@hapi/boom": "^9.1.3",
