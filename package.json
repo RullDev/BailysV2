@@ -1,6 +1,6 @@
 {
   "name": "baileys",
-  "version": "6.0.9",
+  "version": "6.0.8",
   "description": "Baileys Fixed",
   "homepage": "https://github.com/amiruldev20/Baileys",
   "main": "lib/index.js",
