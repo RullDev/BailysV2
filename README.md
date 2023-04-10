@@ -12,7 +12,7 @@
  
 GRUP INFO BAILEYS: [KLIK DISINI](https://chat.whatsapp.com/Htfi5uzYWOt0ekPu66YK4Y)
 
-#### update an sementara diberhentikan, sedang mengupdate library lainnya dan base baru direpo ini
+#### update an sementara diberhentikan, sedang mengupdate library lainnya dan base baru SUPPORT SEND CALL, UPSW DLL
 
 ### baca semua keterangan dibawah biar tahu
 
