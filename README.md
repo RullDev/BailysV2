@@ -10,7 +10,7 @@
  > **Note**: kalau ada problem atau masalah, tanya2 ke grup dibawah ini
  
  
-GRUP INFO BAILEYS: [KLIK DISINI](https://chat.whatsapp.com/Htfi5uzYWOt0ekPu66YK4Y)
+GRUP DISKUSI [KLIK DISINI](https://chat.whatsapp.com/Htfi5uzYWOt0ekPu66YK4Y)
 
 #### update an sementara diberhentikan, sedang mengupdate library lainnya dan base baru SUPPORT SEND CALL, UPSW DLL
 
