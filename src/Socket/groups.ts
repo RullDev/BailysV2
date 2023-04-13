@@ -211,6 +211,26 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 		groupSettingUpdate: async(jid: string, setting: 'announcement' | 'not_announcement' | 'locked' | 'unlocked') => {
 			await groupQuery(jid, 'set', [ { tag: setting, attrs: { } } ])
 		},
+		groupToggleMembershipApprovalMode: async(jid: string, value: 'on' | 'off') => {
+			await groupQuery(
+				jid,
+				'set',
+				[
+					{
+						tag: 'membership_approval_mode',
+						attrs: { },
+						content: [
+							{
+								tag: 'group_join',
+								attrs: {
+									'state': value
+								}
+							}
+						]
+					}
+				]
+			)
+		},
 		groupFetchAllParticipating: async() => {
 			const result = await query({
 				tag: 'iq',
@@ -260,6 +280,10 @@ export const extractGroupMetadata = (result: BinaryNode) => {
 		descId = descChild.attrs.id
 	}
 
+	const approvalMode = getBinaryNodeChild(
+		getBinaryNodeChild(group, 'membership_approval_mode'), 'group_join'
+	)?.attrs?.state
+
 	const groupId = group.attrs.id.includes('@') ? group.attrs.id : jidEncode(group.attrs.id, 'g.us')
 	const eph = getBinaryNodeChild(group, 'ephemeral')?.attrs.expiration
 	const metadata: GroupMetadata = {
@@ -274,6 +298,7 @@ export const extractGroupMetadata = (result: BinaryNode) => {
 		descId,
 		restrict: !!getBinaryNodeChild(group, 'locked'),
 		announce: !!getBinaryNodeChild(group, 'announcement'),
+		membershipApprovalMode: approvalMode === 'on',
 		participants: getBinaryNodeChildren(group, 'participant').map(
 			({ attrs }) => {
 				return {

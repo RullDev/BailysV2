@@ -21,6 +21,8 @@ export interface GroupMetadata {
     /** is set when the group only allows admins to write messages */
     announce?: boolean
     /** number of group participants */
+     /** is set when participants need to request to join the group */
+     membershipApprovalMode?: boolean
     size?: number
     // Baileys modified array
     participants: GroupParticipant[]
