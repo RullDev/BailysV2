@@ -1,8 +1,8 @@
 {
   "name": "baileys",
-  "version": "6.0.8",
-  "description": "Baileys Fixed",
-  "homepage": "https://github.com/amiruldev20/Baileys",
+  "version": "9.0.2",
+  "description": "BailysV2",
+  "homepage": "https://github.com/rulldev/BailysV2",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "keywords": [
@@ -16,6 +16,8 @@
     "automation",
     "multi-device",
     "Amirul Dev",
+    "MasRull",
+    "RullAnakGanteng",
     "Baileys"
   ],
   "scripts": {
