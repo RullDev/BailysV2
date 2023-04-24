@@ -10,7 +10,7 @@
  > **Note**: kalau ada problem atau masalah, tanya2 ke grup dibawah ini
  
  
-GRUP DISKUSI [KLIK DISINI](https://chat.whatsapp.com/KujS5iG5TKfCnrRTlj4MfO)
+SUBSCRIBE YT [KLIK DISINI](https://youtube.com/channel/UC1oSMQCd3XKVxYwSh4RE2Nw)
 
 #### update an sementara diberhentikan, sedang mengupdate library lainnya dan base baru SUPPORT SEND CALL, UPSW DLL
 
