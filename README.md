@@ -2,7 +2,7 @@
 # Baileys Up To Date
  
  <p align="center">
-<img width="" src="https://img.shields.io/github/repo-size/rulldev/bailysv2?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">
+<img width="" src="https://img.shields.io/github/repo-size/rulldev/bailysv2?color=blue&label=Repo%20Size&style=for-the-badge&logo=appveyor">
 </p>
 
  > **Warning**: ini hanyalah repo baileys yang sudah ter update & fix jika ada problem. memudahkan bagi pemula jika ada pull req di repo utama yang belum di acc
