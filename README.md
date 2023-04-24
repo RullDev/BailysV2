@@ -63,7 +63,7 @@ getMessage: async (key) => {
 }
 ```
 ### Patch Update
-> ✅ Fix Lib Signal
+> ✅ Fix Lib Signal >
 > ✅ Button Support
 > ✅ Button Sup Wa Ori
 > ❌ Button Sup Wa Bussines
