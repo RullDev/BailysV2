@@ -63,8 +63,8 @@ getMessage: async (key) => {
 }
 ```
 ### Patch Update
-> ✅ Fix Lib Signal >
-> ✅ Button Support
+> ✅ Fix Lib Signal \n
+> ✅ Button Support \n
 > ✅ Button Sup Wa Ori
 > ❌ Button Sup Wa Bussines
 > ✅ SingleAuth + MultiAuth
